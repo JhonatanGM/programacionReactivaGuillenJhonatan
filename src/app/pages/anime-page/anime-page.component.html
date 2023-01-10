@@ -1,0 +1,25 @@
+<main class="p-3">
+    <h1 class="text-center">buscador</h1>
+
+    <form class="mb-3" [formGroup]="form">
+        <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+            <input [formControl]="serachCharacter" matInput placeholder="morty" />
+        </mat-form-field>
+    </form>
+
+    <section class="grid" *ngFor="let anime of (animes.results | async)" style="display:inline-block;width: 33%;padding-bottom: 2rem;padding-left: 5rem;">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"> <img class="example-header-image" style="height: 50px;width: 50px;" [src]="anime.image" alt=""></div>
+                <mat-card-title>{{anime.name}}</mat-card-title>
+                <mat-card-subtitle>{{anime.gender}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="anime.image" alt="">
+            <mat-card-content>
+                <p>
+                    Raza : {{anime.species}} <br>Estado: {{anime.status}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </section>
+</main>
